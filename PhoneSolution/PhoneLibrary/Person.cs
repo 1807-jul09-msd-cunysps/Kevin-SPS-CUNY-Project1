@@ -8,5 +8,7 @@ namespace PhoneLibrary
 {
     public class Person
     {
+        public long Pid { get; set; }
+        public string  FirstName { get; set; }
     }
 }
