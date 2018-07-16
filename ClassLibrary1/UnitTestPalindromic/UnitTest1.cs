@@ -12,19 +12,27 @@ namespace UnitTestPalindromic
         public void TestMethodIsPalindromic()
         {
             //Arrange
-
+            //test strings
             string s1 = "A nut for a jar of tuna.";
             string s2 ="Borrow or rob";
             string s3 = "343";
-            string[] s = new string[3];
+
+            //Remove Whitespace and Puncuation
+            s1 = Palindromic.removeWhitePunct(s1);
+            s2 = Palindromic.removeWhitePunct(s2);
+            s3 = Palindromic.removeWhitePunct(s3);
+
+            //Create the palindrome
+            s1 = Palindromic.getPalindrome(s1);
+            s2 = Palindromic.getPalindrome(s2);
+            s3 = Palindromic.getPalindrome(s3);
 
             //Act
+
             bool b1 = Palindromic.IsPalindromic(s1);
             bool b2 = Palindromic.IsPalindromic(s2);
             bool b3 = Palindromic.IsPalindromic(s3);
-            Console.WriteLine(b1);
-            Console.WriteLine(b2);
-            Console.WriteLine(b3);
+
             //Assert
             Assert.IsTrue(b1);
             Assert.IsTrue(b2);
