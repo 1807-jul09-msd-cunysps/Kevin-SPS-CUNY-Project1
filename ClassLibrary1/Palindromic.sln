@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PalindromicLibrary", "ClassLibrary1\PalindromicLibrary.csproj", "{D776884D-F57B-4A68-9021-0CF48AA0AA05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestPalindromic", "UnitTestPalindromic\UnitTestPalindromic.csproj", "{2975A836-F8E5-40DA-95E4-E7F81B9799F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PalindromeClient", "ConsoleApp1\PalindromeClient.csproj", "{69AB8695-30DD-45DC-9013-06FA8B749076}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D776884D-F57B-4A68-9021-0CF48AA0AA05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D776884D-F57B-4A68-9021-0CF48AA0AA05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D776884D-F57B-4A68-9021-0CF48AA0AA05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D776884D-F57B-4A68-9021-0CF48AA0AA05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2975A836-F8E5-40DA-95E4-E7F81B9799F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2975A836-F8E5-40DA-95E4-E7F81B9799F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2975A836-F8E5-40DA-95E4-E7F81B9799F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2975A836-F8E5-40DA-95E4-E7F81B9799F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69AB8695-30DD-45DC-9013-06FA8B749076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69AB8695-30DD-45DC-9013-06FA8B749076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69AB8695-30DD-45DC-9013-06FA8B749076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69AB8695-30DD-45DC-9013-06FA8B749076}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {816A51E8-ACAF-4D62-844B-231C1F727C98}
+	EndGlobalSection
+EndGlobal

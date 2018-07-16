@@ -1,0 +1,6 @@
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ClassLibrary1\obj\Debug\PalindromicLibrary.csprojAssemblyReference.cache
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ClassLibrary1\obj\Debug\PalindromicLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ClassLibrary1\obj\Debug\ClassLibrary1.pdb

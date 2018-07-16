@@ -1,0 +1,10 @@
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ConsoleApp1\obj\Debug\PalindromeClient.csprojAssemblyReference.cache
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ConsoleApp1\obj\Debug\PalindromeClient.csproj.CoreCompileInputs.cache
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ConsoleApp1\bin\Debug\ClassLibrary1.dll
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ConsoleApp1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ConsoleApp1\obj\Debug\PalindromeClient.csproj.CopyComplete
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ClassLibrary1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
