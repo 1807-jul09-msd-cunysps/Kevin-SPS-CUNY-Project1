@@ -17,16 +17,6 @@ namespace UnitTestPalindromic
             string s2 ="Borrow or rob";
             string s3 = "343";
 
-            //Remove Whitespace and Puncuation
-            s1 = Palindromic.removeWhitePunct(s1);
-            s2 = Palindromic.removeWhitePunct(s2);
-            s3 = Palindromic.removeWhitePunct(s3);
-
-            //Create the palindrome
-            s1 = Palindromic.getPalindrome(s1);
-            s2 = Palindromic.getPalindrome(s2);
-            s3 = Palindromic.getPalindrome(s3);
-
             //Act
 
             bool b1 = Palindromic.IsPalindromic(s1);

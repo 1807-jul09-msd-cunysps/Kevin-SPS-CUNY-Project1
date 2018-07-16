@@ -28,6 +28,8 @@ namespace PalindromicLibrary
         
         public static string getPalindrome(string s)
         {
+            s.Trim();
+            s.ToLower();
             string s1 = removeWhitePunct(s);
             string s2 = "";
             for (int i=0;i<s1.Length;i++)
@@ -41,9 +43,8 @@ namespace PalindromicLibrary
 
         public static bool IsPalindromic(string s)
         {
-            s.Trim();
-            s.ToLower();
-            if (Palindromic.getPalindrome(s) == s)
+        
+            if (Palindromic.getPalindrome(s) == Palindromic.removeWhitePunct(s))
             {
                 return true;
             }
