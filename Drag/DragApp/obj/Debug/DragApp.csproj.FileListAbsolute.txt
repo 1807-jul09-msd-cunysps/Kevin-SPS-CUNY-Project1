@@ -1,0 +1,7 @@
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\Drag\DragApp\bin\DragApp.dll.config
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\Drag\DragApp\bin\DragApp.dll
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\Drag\DragApp\bin\DragApp.pdb
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\Drag\DragApp\obj\Debug\DragApp.csprojAssemblyReference.cache
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\Drag\DragApp\obj\Debug\DragApp.csproj.CoreCompileInputs.cache
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\Drag\DragApp\obj\Debug\DragApp.dll
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\Drag\DragApp\obj\Debug\DragApp.pdb

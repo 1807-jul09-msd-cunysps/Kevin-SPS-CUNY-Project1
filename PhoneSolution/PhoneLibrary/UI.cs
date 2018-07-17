@@ -47,9 +47,10 @@ namespace PhoneLibrary
             }
         }
 
-        private List<Person> ReadContacts()
+        private void ReadContacts()
         {
-            List<Person> p = new List<Person>;
+
+            private List<Person> p { get; set};
             string filepath = "C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0.contacts.json";
             FileStream stream1 = new FileStream(filepath, FileMode.Open; FileAccess.Read);
             
@@ -60,6 +61,8 @@ namespace PhoneLibrary
 
         private string AddContact()
         {
+            
+            Person p = new Person();
 
         }
         private string DeleteContact()
@@ -72,6 +75,15 @@ namespace PhoneLibrary
         }
         private string SearchContact()
         {
+            var persons = p.Get();
+            //LINQ-Language Integrate Query
+            //Query Syntax
+            /*var query = from p1 in persons
+                        where p1.firstName.StartsWith("T")
+                        select p1;*/
+            var query = from p1 in persons
+                        where p1.address.houseNum.Equals("121")
+                        select p1;
 
         }
 
@@ -80,4 +92,11 @@ namespace PhoneLibrary
 
 
     }
-}
+
+    public interface Add
+    {
+        void Add();
+        Console.WriteLine("Please enter " + string s);
+        Console.ReadLine(string input);
+        
+    }

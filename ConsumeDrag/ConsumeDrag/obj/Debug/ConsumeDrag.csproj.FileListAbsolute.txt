@@ -1,0 +1,7 @@
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ConsumeDrag\ConsumeDrag\bin\Debug\ConsumeDrag.exe.config
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ConsumeDrag\ConsumeDrag\bin\Debug\ConsumeDrag.exe
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ConsumeDrag\ConsumeDrag\bin\Debug\ConsumeDrag.pdb
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ConsumeDrag\ConsumeDrag\obj\Debug\ConsumeDrag.csprojAssemblyReference.cache
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ConsumeDrag\ConsumeDrag\obj\Debug\ConsumeDrag.csproj.CoreCompileInputs.cache
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ConsumeDrag\ConsumeDrag\obj\Debug\ConsumeDrag.exe
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\ConsumeDrag\ConsumeDrag\obj\Debug\ConsumeDrag.pdb
