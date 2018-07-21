@@ -8,31 +8,46 @@ using System.Runtime.Serialization;
 
 namespace PhoneLibrary
 {
-    public static class UI
+    public interface IUserInterface
     {
+        void UIDisplay();
+        int UIRead();
+        void UISwitch(int input);
 
-        static string s1 = "1. Read Contacts";
-        static string s2 = "2. Add Contact";
-        static string s3 = "3. Delete Contact";
-        static string s4 = "4. Edit Contact";
-        static string s5 = "5. Search Contacts";
-        private static readonly string[] _ui = { s1, s2, s3, s4, s5 };
+    }
 
-        public  static void DisplayStringArray()
+    public class UI : IUserInterface(){
+
+        public List<Person> Contacts { get; set; }
+        #region UIDisplay()
+        public void UIDisplay()
         {
+
+            string readonly s1 = "1. Read Contacts";
+            string readonly s2 = "2. Add Contact";
+            string readonly s3 = "3. Delete Contact";
+            string readonly s4 = "4. Edit Contact";
+            string readonly s5 = "5. Search Contacts";
+            private static readonly string[] _ui = { s1, s2, s3, s4, s5 };
             foreach (var s in _ui){ 
                 Console.WriteLine(s);
             }
+    #endregion
+        int UIRead(){
         }
 
-        public void Switchboard(int input)
+}
+
+        public void UISwitch(int input)
         {
             switch (input)
             {
+                default:
+                //Switchboard()
                 case 0:
                     break;
                 case 1:
-                //ReadContacts()
+                    ReadContacts();
                 case 2:
                 //AddContact()
                 case 3:
@@ -41,39 +56,46 @@ namespace PhoneLibrary
                 //EditContact()
                 case 5:
                 //SearchContact()
-                default:
-                    //Switchboard()
+               
 
             }
         }
 
-        private void ReadContacts()
+        public void ReadContacts()
         {
+            //Initialize Property of Collection of Persons
+           private List<Person> pList;
 
-            private List<Person> p { get; set};
-            string filepath = "C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0.contacts.json";
-            FileStream stream1 = new FileStream(filepath, FileMode.Open; FileAccess.Read);
+            public List<Person> PList { get => pList; set => pList = value; }
+
+            //IO stream to obtain JSON
+
+            //Deserialize JSON
+
+            /*string filepath = "C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0.contacts.json";
+                FileStream stream1 = new FileStream(filepath, FileMode.Open; FileAccess.Read);
+            */
+            //Set contacts to the newly read contact list
             
-
-
-            
-        }
-
-        private string AddContact()
+                contacts = PList;      
+         }
+        //Passes in a Person object and adds it to the Collection of Persons
+        public static void AddContact(Person person, ref List<Person> listPersons)
         {
             
-            Person p = new Person();
-
+            listPersons.Add(person);
+            Console.WriteLine($'New Contact \' '+ person.FirstName + ' has beend added to Contacts.');
         }
-        private string DeleteContact()
+
+        public static string DeleteContact()
         {
 
         }
-        private string EditContact()
+        public static string EditContact()
         {
 
         }
-        private string SearchContact()
+        public static string SearchContact()
         {
             var persons = p.Get();
             //LINQ-Language Integrate Query
@@ -87,16 +109,15 @@ namespace PhoneLibrary
 
         }
 
+        public static Person AddPerson()
+        {
+            Person p = new Person;
+            Console.WriteLine("Please enter " + string s);
+            Console.ReadLine(string input);
 
-
-
-
+            return  p;
     }
 
-    public interface Add
-    {
-        void Add();
-        Console.WriteLine("Please enter " + string s);
-        Console.ReadLine(string input);
-        
-    }
+}
+
+
