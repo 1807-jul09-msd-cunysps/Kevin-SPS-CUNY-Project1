@@ -49,9 +49,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PhoneLibrary\PhoneLibrary.csproj">
-      <Project>{090f9f87-c23b-4a17-a7f3-dbddb2b926b4}</Project>
-      <Name>PhoneLibrary</Name>
+    <ProjectReference Include="..\PhoneAppLibrary\PhoneAppLibrary.csproj">
+      <Project>{18e8f547-bc8b-494d-bd33-bff3b3df53de}</Project>
+      <Name>PhoneAppLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 
-namespace PhoneClient
+namespace PhoneAppLibrary
 {
     class Program
     {
         static void Main(string[] args)
         {
-
-            //Display main menu
-            PhoneLibrary.UI uI = new PhoneLibrary.UI();
-            //Displays UI on Console
-            uI.PrintS();
-            //Read user input
-            int input = int.Parse(Console.ReadLine());
+            //Display UI on Console
+            UI uI = new UI();
+            uI.Print();
+        //Read user input
+            int input = uI.UIRead();
+            uI.UISwitch(input);
 
         }
     }

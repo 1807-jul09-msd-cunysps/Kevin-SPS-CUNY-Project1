@@ -1,0 +1,6 @@
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\bin\Debug\PhoneAppLibrary.dll
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\bin\Debug\PhoneAppLibrary.pdb
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\obj\Debug\PhoneAppLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\obj\Debug\PhoneAppLibrary.dll
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\obj\Debug\PhoneAppLibrary.pdb
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\obj\Debug\PhoneAppLibrary.csprojAssemblyReference.cache
