@@ -18,14 +18,16 @@
 
 function showHeroes(jsonObj) {
     var heroArray = jsonObj['members'];
-    for (int i = 0; i < heroArray.length; i++) {
+    for (var i = 0; i < heroArray.length; i++) {
         var heroArticle = document.createElement('article');
         var h2 = document.createElement('h2');
-        h2.textContent = 'Name: ' + heroArray[i].name;
+        h2.textContent = heroArray[i].name;
 
             var p1 = document.createElement('p');
-            p2.textContent = 'Age: ' + heroArray[i].age
-
+        p1.textContent = 'Age: ' + heroArray[i].age
+        heroArticle.appendChild(h2)
+        heroArticle.appendChild(p1);
+        section.appendChild(heroArticle);
 
 
     }
