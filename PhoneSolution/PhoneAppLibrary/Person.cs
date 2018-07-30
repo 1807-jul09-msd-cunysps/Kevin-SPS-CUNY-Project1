@@ -188,7 +188,7 @@ namespace PhoneAppLibrary
             }
             
         }
-        public static List<string> GetAddressStr()
+        public static List<string> GetAddressListStr()
         {
             List<string> addStr = new List<string>();
             Console.WriteLine("Please enter the house number of the address: ");

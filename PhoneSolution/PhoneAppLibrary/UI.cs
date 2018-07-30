@@ -209,19 +209,25 @@ namespace PhoneAppLibrary
             Console.WriteLine("Please enter the last name of the person you wish to delete");
             string inputLastName = Console.ReadLine();
 
-            Console.WriteLine("Do you wish to change the Address? (Y/N) ");
+            Console.WriteLine("Do you wish to change the Address? (Y/N)");
             string inputChar =(Console.ReadLine());
             inputChar = inputChar.ToUpper();
             
             //Get Address
             if (inputChar == "Y")
             {
-     
+                
+                List<string> addressListStr = Person.GetAddressListStr();
 
+                (from p in Contacts 
+                 where p.FirstName == inputFirstName && p.LastName == inputLastName
+                 select p.myAddress)
             }
-            elseif (inputChar != "Y")
+            else if (inputChar == "N"){
+                Console.WriteLine("Do you wish to change the Phone Number? (Y/N)");
+            }
            
-            Console.WriteLine("Which contact do you wish to edit?");
+
 
             //Prints all contacts to the Console
             Console.WriteLine(listPersons);
