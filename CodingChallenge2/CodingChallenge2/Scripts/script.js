@@ -6,27 +6,31 @@
      header.appendChild(h1)
 
     var h2 = document.createElement("h2");
-    var p1 = document.createElement("p1");
-    p1.textContent = 'Hometown: ' + jsonObj.homeTown;
+    var p1 = document.createElement("p");
+    p1.textContent = 'Hometown: ' + jsonObj.homeTown + ' Formed: ' + jsonObj.formed;
     h2.appendChild(p1);
     //+ ' formed: ' + jsonObj.formed;
-    header.appendChild(h2);
-
-    //    var h2 = document.createElement("h2");
-    //        var p = document.createElement("p");
-    //        p.textContent = jsonObj.homeTown;
-    //     header.appendChild(p);
-    //document.appendChild(header);
-
-
-
-
+    header.appendChild(p1);
 
     var body = document.getElementsByTagName("body");
    
 }
 
+function showHeroes(jsonObj) {
+    var heroArray = jsonObj['members'];
+    for (int i = 0; i < heroArray.length; i++) {
+        var heroArticle = document.createElement('article');
+        var h2 = document.createElement('h2');
+        h2.textContent = 'Name: ' + heroArray[i].name;
 
+            var p1 = document.createElement('p');
+            p2.textContent = 'Age: ' + heroArray[i].age
+
+
+
+    }
+
+}
 window.onload = loadpage;
 
 function loadpage() {
@@ -45,4 +49,3 @@ function loadpage() {
     }
 
 }
-//function showHeroes()
