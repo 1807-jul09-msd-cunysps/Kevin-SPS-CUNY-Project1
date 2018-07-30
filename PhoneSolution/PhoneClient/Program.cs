@@ -15,10 +15,11 @@ namespace PhoneAppLibrary
             //Display UI on Console
             UI uI = new UI();
             uI.Print();
-        //Read user input
-            int input = uI.UIRead();
-            uI.UISwitch(input);
-
+            //Read user input
+            while (uI.IsOpen()) { 
+                int input = uI.UIRead();
+                uI.UISwitch(input);
+            }
         }
     }
 }

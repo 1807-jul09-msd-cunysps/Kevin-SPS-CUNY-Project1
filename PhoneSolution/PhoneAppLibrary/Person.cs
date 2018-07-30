@@ -19,7 +19,7 @@ namespace PhoneAppLibrary
 
         //Person constructors
         #region
-        public Person(long pid, string fName, string lName, string gender, string DoB, Address address, Phone phone)
+        public Person(int pid, string fName, string lName, string gender, string DoB, Address address, Phone phone)
         {
             this.Pid = pid;
             this.FirstName = fName;
@@ -48,15 +48,15 @@ namespace PhoneAppLibrary
         #endregion
 
         //Constructor that takes in List of strings that has size of 14 elements
-        public Person(List<string> p)
+        public Person(List<string> p, int pid=1)
         {
-            Pid = Convert.ToInt64(p[0]);
+            Pid = pid;
             FirstName = p[1];
             LastName = p[2];
             Gender = p[3];
             DoB = Convert.ToString(p[4]);
-            myAddress = new Address(Convert.ToInt64(p[0]),p[5],p[6],p[7], p[8],p[9], p[10]);
-            myPhone = new Phone(Convert.ToInt64(p[0]), p[11], p[12], p[13]);
+            myAddress = new Address(Convert.ToInt32(p[0]),p[5],p[6],p[7], p[8],p[9], p[10]);
+            myPhone = new Phone(Convert.ToInt32(p[0]), p[11], p[12], p[13]);
         }
         #endregion
         [DataContract]
@@ -94,7 +94,7 @@ namespace PhoneAppLibrary
             //Data members
             #region
             [DataMember]
-            public long Pid { get; set; }
+            public int Pid { get; set; }
             [DataMember]
             public string StreetName { get; set; }
             [DataMember]
@@ -109,23 +109,7 @@ namespace PhoneAppLibrary
             public string Country { get; set; }
             #endregion
 
-            public static List<string> GetAddressStr()
-            {
-                List<string> addStr = new List<string>();
-                Console.WriteLine("Please enter the house number of the address: ");
-                addStr.Add(Convert.ToString(Console.Read()));
-                Console.WriteLine("Please enter the street name of the address: ");
-                addStr.Add(Convert.ToString(Console.Read()));
-                Console.WriteLine("Please enter the city: ");
-                addStr.Add(Convert.ToString(Console.Read()));
-                Console.WriteLine("Please enter the state: ");
-                addStr.Add(Convert.ToString(Console.Read()));
-                Console.WriteLine("Please enter the zip code: ");
-                addStr.Add(Convert.ToString(Console.Read()));
-                Console.WriteLine("Please enter the country: ");
-                addStr.Add(Convert.ToString(Console.Read()));
-                return addStr;
-            }
+           
             
         }
 
@@ -133,7 +117,7 @@ namespace PhoneAppLibrary
         [DataContract]
         public class Phone
         {
-            public Phone(long pid, string cCode, string aCode, string number)
+            public Phone(int pid, string cCode, string aCode, string number)
             {
                 this.Pid = pid;
                 this.CountryCode = cCode;
@@ -156,20 +140,73 @@ namespace PhoneAppLibrary
         public static List<string> GetPersonInfo()
         {
             List<string> personString = new List<string>();
+
+
             Console.WriteLine("Please enter the first name of the person");
             personString.Add(Console.ReadLine());
             Console.WriteLine("Please enter the last name of the person");
             personString.Add(Console.ReadLine());
             Console.WriteLine("Please enter the Date of Birth");
             personString.Add(Console.ReadLine());
+            Console.WriteLine("Please enter the gender of the person ('M' or 'F' or 'U' for undeclared");
+            personString.Add(Console.ReadLine());
+
+
+            //Address
             Console.WriteLine("Please enter the Street Name");
             personString.Add(Console.ReadLine());
             Console.WriteLine("Please enter the Street Number");
+            personString.Add(Console.ReadLine());
+            Console.WriteLine("Please enter the city");
+            personString.Add(Console.ReadLine());
+            Console.WriteLine("Please enter the state");
+            personString.Add(Console.ReadLine());
+            Console.WriteLine("Please enter the zip code");
+            personString.Add(Console.ReadLine());
+            Console.WriteLine("Please enter the country");
+            personString.Add(Console.ReadLine());
 
-            //Console.WriteLine();
-            //Console.WriteLine();
-            return personString;
+            //Phone
+            Console.WriteLine("Please enter the Country Code");
+            personString.Add(Console.ReadLine());
+            Console.WriteLine("Please enter the area code (3 numbers)");
+            personString.Add(Console.ReadLine());
+            Console.WriteLine("Please enter the phone number without area code and dashes");
+            personString.Add(Console.ReadLine());
+
+            if (personString.Count() == 14)
+            {
+                return personString;
+            }
+            else
+            {
+                for (int i=personString.Count(); i<14; i++)
+                {
+                    personString.Add(null);
+                }
+                return personString;
+            }
+            
         }
+        public static List<string> GetAddressStr()
+        {
+            List<string> addStr = new List<string>();
+            Console.WriteLine("Please enter the house number of the address: ");
+            addStr.Add(Convert.ToString(Console.Read()));
+            Console.WriteLine("Please enter the street name of the address: ");
+            addStr.Add(Convert.ToString(Console.Read()));
+            Console.WriteLine("Please enter the city: ");
+            addStr.Add(Convert.ToString(Console.Read()));
+            Console.WriteLine("Please enter the state: ");
+            addStr.Add(Convert.ToString(Console.Read()));
+            Console.WriteLine("Please enter the zip code: ");
+            addStr.Add(Convert.ToString(Console.Read()));
+            Console.WriteLine("Please enter the country: ");
+            addStr.Add(Convert.ToString(Console.Read()));
+            return addStr;
+        }
+
+
         public void Print()
         {
             Console.WriteLine(this.Pid);
@@ -186,5 +223,12 @@ namespace PhoneAppLibrary
             Console.WriteLine(this.myPhone.AreaCode);
             Console.WriteLine(this.myPhone.Number);
         }
+        public static string NoPunctuation (string s)
+        {
+            string s2 = new string(s.Where(c => !char.IsPunctuation(c)).ToArray());
+            return s2;
+        }
     }
+
+
 }

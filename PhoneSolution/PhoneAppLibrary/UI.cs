@@ -12,8 +12,9 @@ namespace PhoneAppLibrary
     public class UI {
         //class members
         #region
-        static List<string> sl= new List<string>();
+        static List<string> sl = new List<string>();
         List<Person> Contacts { get; set; }
+        bool isOpen = true;
 
         string connectionString = "Data Source=kevin-adventureworks.database.windows.net;Initial Catalog=PhoneApp;User ID=kevin;Password=revature2018!";
         string queryString = "select Pid, FirstName, LastName, Gender, DateOfBirth, Address.id, StreetName, HouseNumber, City, State, ZipCode, Country, Phones.id, CountryCode, AreaCode, PhoneNumber From persons inner join Address on Pid = PersonID inner join Phones on Pid = Phones.PersonID";
@@ -24,6 +25,7 @@ namespace PhoneAppLibrary
         public UI()
         {
             Contacts = new List<Person>();
+
             sl.Add("Welcome to PhoneApp");
             sl.Add("Please enter the key corresponding to desired action: ");
             sl.Add("1. Read Contacts");
@@ -31,10 +33,12 @@ namespace PhoneAppLibrary
             sl.Add("3. Delete Contact");
             sl.Add("4. Edit Contact");
             sl.Add("5. Search Contacts");
+            sl.Add("6. Exit");
         }
         #endregion
 
         //helper methods
+        #region
         public void Print()
         {
             sl.ForEach(s => Console.WriteLine(s));
@@ -54,22 +58,31 @@ namespace PhoneAppLibrary
             }
             return 0;
         }
-        #region
+        public bool IsOpen()
+        {
+            return isOpen;
+        }
+        public void PrintIDNamePhoneNum()
+        {
+            Contacts.ForEach(c => Console.WriteLine(Convert.ToString(c.Pid) + ', ' + c.FirstName + ', ' + c.myPhone.AreaCode + c.myPhone.Number));
+        }
+        #endregion
 
         //Switch Methods
+        #region
         public void UISwitch(int input)
         {
             switch (input)
             {
+
                 case 1:
                     ReadContacts();
                     break;
                 case 2:
-                    //Person p = new Person(Person.GetPersonInfo());
-                    //AddContact();
+                    AddContact();
                     break;
                 case 3:
-                    //DeleteContact();
+                    DeleteContact();
                     break;
 
                 case 4:
@@ -78,8 +91,12 @@ namespace PhoneAppLibrary
                 case 5:
                     //SearchContact()
                     break;
+                case 6:
+                    isOpen = false;
+                    break;
                 default:
                     //Switchboard()
+                    Console.WriteLine("Invalid integer, please enter desired action using corresponding integer");
                     break;
 
             }
@@ -90,8 +107,6 @@ namespace PhoneAppLibrary
             //deletes content from Contacts
 
             this.Contacts.Clear();
-
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
@@ -103,23 +118,20 @@ namespace PhoneAppLibrary
                 while (reader.Read())
                 {
                     List<string> personString = new List<string>();
-                    for(int i = 0; i < count; i++)
+                    for (int i = 0; i < count; i++)
                     {
                         personString.Add(Convert.ToString(reader.GetValue(i)));
                     }
                     Person p = new Person(personString);
                     Contacts.Add(p);
                 }
-               
+
                 connection.Close();
             }
-            Contacts.ForEach(delegate (Person p) { p.Print(); });
+            Console.WriteLine($"Number of contacts loaded: {Contacts.Count()}");
 
             Console.Read();
         }
-   
-       
-      
 
 
         //public void ViewContacts(ref List<Person> listPersons)
@@ -131,16 +143,62 @@ namespace PhoneAppLibrary
         //}
         //Passes in a Person object and adds it to the Collection of Persons
 
-        public void AddContact(Person person, ref List<Person> listPersons)
+        public void AddContact()
         {
-            listPersons.Add(person);
+            List<int> uniqueIDList = new List<int>();
+            for (int i = 0; i < Contacts.Count(); i++)
+            {
+                uniqueIDList.Add(Convert.ToInt32(Contacts[i].Pid));
+            }
+            //In addition to getting Person information from user, it assigns the integer larger than the largest 
+            //Pid to the newly created Person. If a person gets deleted, the Count of Contacts will change but the id should not
+            //be repeated
+            Person person = new Person(Person.GetPersonInfo(), uniqueIDList.Max() + 1);
+            Contacts.Add(person);
+
+            //Adds the person to the database
+
+            List<string> queryInsertString = new List<string>();
+            queryInsertString.Add($"insert into Persons values ('{person.FirstName}', '{person.LastName}', '{person.Gender}', '{person.DoB}');");
+            queryInsertString.Add($"insert into Address values((select Max(Persons.Pid) from Persons)+1, '{person.myAddress.StreetName}', '{person.myAddress.HouseNum}', '{person.myAddress.City}', '{person.myAddress.State}', '{person.myAddress.Zipcode}', '{person.myAddress.Country}'); ");
+            queryInsertString.Add($"insert into Phones values((select Max(Persons.Pid) from Persons)+1, '{person.myPhone.CountryCode}', '{person.myPhone.AreaCode}', '{person.myPhone.Number}'); ");
+
+
+            //Adds the person to the database
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                for (int i = 0; i < queryInsertString.Count(); i++)
+                {
+                    SqlCommand command = new SqlCommand(queryInsertString[i], connection);
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+
             Console.WriteLine($"New Contact {person.FirstName} has been added to Contacts.");
         }
-        public void DeleteContact(Person person, ref List<Person> listPersons)
+        public void DeleteContact()
         {
-            listPersons.Remove(person);
-            Console.WriteLine($"New Contact {person.FirstName} has been removed Contacts.");
-        }
+
+            Console.WriteLine("Please enter the id of the person you wish to delete");
+            PrintIDNamePhoneNum();
+            int input = Console.Read();
+            Contacts.RemoveAll(p => p.Pid == input);
+            string queryString = $"Delete from Persons where Pid={Convert.ToString(input)};";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        
+                Console.WriteLine("Contact Removed");
+            }
+        
+
+
         public void EditContact(Person person, ref List<Person> listPersons)
         {
             Console.WriteLine("Which contact do you wish to edit?");
