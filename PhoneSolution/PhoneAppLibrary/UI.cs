@@ -195,17 +195,37 @@ namespace PhoneAppLibrary
             }
         
                 Console.WriteLine("Contact Removed");
-            }
+        }
         
 
 
-        public void EditContact(Person person, ref List<Person> listPersons)
+        public void EditContact()
         {
+
+            
+            PrintIDNamePhoneNum();
+            Console.WriteLine("Please enter the first name of the person you wish to delete");
+            string inputFirstName = Console.ReadLine();
+            Console.WriteLine("Please enter the last name of the person you wish to delete");
+            string inputLastName = Console.ReadLine();
+
+            Console.WriteLine("Do you wish to change the Address? (Y/N) ");
+            string inputChar =(Console.ReadLine());
+            inputChar = inputChar.ToUpper();
+            
+            //Get Address
+            if (inputChar == "Y")
+            {
+     
+
+            }
+            elseif (inputChar != "Y")
+           
             Console.WriteLine("Which contact do you wish to edit?");
 
             //Prints all contacts to the Console
             Console.WriteLine(listPersons);
-            listPersons.ForEach(i => Console.Write("{0}\r\n", i));
+            Contacts.ForEach(i => Console.Write("{0}\r\n", i));
 
             //Get contact to edit
             int input = Convert.ToInt32(Console.Read());
