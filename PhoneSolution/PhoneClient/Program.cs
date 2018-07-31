@@ -14,9 +14,11 @@ namespace PhoneAppLibrary
         {
             //Display UI on Console
             UI uI = new UI();
-            uI.Print();
+            uI.ReadContacts();
+            Console.WriteLine("\n\n\t\tWelcome to PhoneApp\n");
             //Read user input
-            while (uI.IsOpen()) { 
+            while (uI.IsOpen()) {
+                uI.Print();
                 int input = uI.UIRead();
                 uI.UISwitch(input);
             }
