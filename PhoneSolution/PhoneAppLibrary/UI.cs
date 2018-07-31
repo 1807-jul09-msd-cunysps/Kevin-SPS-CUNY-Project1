@@ -6,10 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
 
 namespace PhoneAppLibrary
 {
     public class UI {
+
+        public NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();//for logging exceptions
         //class members
         #region
         static List<string> sl = new List<string>();
@@ -31,7 +34,8 @@ namespace PhoneAppLibrary
             sl.Add("\t3. Delete Contact");
             sl.Add("\t4. Edit Contact");
             sl.Add("\t5. Search Contacts");
-            sl.Add("\t6. Exit");
+            sl.Add("\t6. Export Json file");
+            sl.Add("\t7. Exit");
         }
         #endregion
 
@@ -41,7 +45,15 @@ namespace PhoneAppLibrary
         {
             sl.ForEach(s => Console.WriteLine(s));
         }
+        public Person SearchContactById(int id)
+        {
+            foreach (Person p in Contacts)
+            {
+                if (p.Pid == id) { return p; }
+            }
+            return null;
 
+        }
 
         public int UIRead()
         {
@@ -73,6 +85,19 @@ namespace PhoneAppLibrary
         }
         #endregion
 
+        public void useConnection(string queryString)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                SqlCommand command = new SqlCommand(queryString, connection);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+
+            }
+        }
+
         //Switch Methods
         #region
         public void UISwitch(int input)
@@ -82,7 +107,8 @@ namespace PhoneAppLibrary
 
                 case 1:
                     ReadContacts();
-                    Contacts.ForEach(p => p.Print());
+
+                    foreach(Person p in Contacts) { p.Print(); }
                     break;
                 case 2:
                     AddContact();
@@ -95,9 +121,16 @@ namespace PhoneAppLibrary
                     EditContact();
                     break;
                 case 5:
-                    SearchContactById(Contacts).Print();
+                    Console.WriteLine("Please enter the first name of the Person to be searched: \n");
+                    string fName = Console.ReadLine();
+                    List<Person> results = SearchByFirstName(fName);
+                    foreach(Person p in results) { p.Print(); }
                     break;
                 case 6:
+                    getJSON();
+                    Console.WriteLine("Json file written");
+                    break;
+                case 7:
                     isOpen = false;
                     break;
                 default:
@@ -140,16 +173,6 @@ namespace PhoneAppLibrary
             }
         }
 
-
-        //public void ViewContacts(ref List<Person> listPersons)
-        //{
-        //        listPersons.ForEach(delegate (Person p) {
-        //        Console.WriteLine(p.Pid);
-        //        }
-
-        //}
-        //Passes in a Person object and adds it to the Collection of Persons
-
         public void AddContact()
         {
           
@@ -189,61 +212,63 @@ namespace PhoneAppLibrary
             Console.WriteLine("Please enter the id of the person you wish to delete");
             PrintIDNamePhoneNum();
             int input = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"Input value: {input}\tInput type: {input.GetType()}");
+            Console.WriteLine();
             Contacts.RemoveAll(p => p.Pid == input);
-            string queryString = $"Delete from Persons where Pid={Convert.ToString(input)};";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(queryString, connection);
-                connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
-            }
-        
-                Console.WriteLine("Contact Removed");
+            string queryString = $"Delete from Persons where Pid={input};";
+            useConnection(queryString);
+             Console.WriteLine("Contact Removed");
         }
         
-
-
         public void EditContact()
         {
+            //prints contacts and asks for integer id input
             #region
             UI.ListPrint(Contacts);
-        //    bool isPersonNotFound = true;
-        //    string inputLName;
-        //    string inputFName;
-        //    //Confirm input name exists in the Contacts
-        //    while (isPersonNotFound) { 
-        //        PrintIDNamePhoneNum();
-        //        Console.WriteLine("Please enter the first name of the person you wish to edit");
-        //        string inputFirstName = Console.ReadLine();
-        //        Console.WriteLine("Please enter the last name of the person you wish to edit");
-        //        string inputLastName = Console.ReadLine();
-        //        foreach (Person person in Contacts)
-        //        {
-        //            if (inputFirstName == person.FirstName && inputLastName == person.LastName)
-        //            {
-        //                isPersonNotFound = false;
+            bool isPersonNotFound = true;
+            int input=0;
 
-        //                break;
-        //            }
-        //            else
-        //            {
-        //                Console.WriteLine("Please enter a name in the Contacts list");
-        //            }
+            //verify input is valid Pid within Contacts
+            while (isPersonNotFound){
+                Console.WriteLine("Please enter the id of the person to be updated");
+                try
+                {
+                    input = Convert.ToInt32(Console.ReadLine());
+                    foreach (Person p in Contacts)
+                    {
+                        if (p.Pid == input)
+                        {
+                            isPersonNotFound = false; break;
+                        }
 
-        //        }
-        //    }
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please enter a valid id integer");
+                }
+            }
+
         #endregion
             Console.WriteLine("Do you wish to change the Address? (Y/N)");
             string inputChar =(Console.ReadLine()).ToUpper();
             //Get Address
+            
             if (inputChar == "Y")
             {
+                
                 Console.WriteLine("Please enter the new Address");
                 List<string> addressListStr = Person.GetAddressListStr();
-                Person.Address newAddress = new Person.Address();
-                SearchContactById(Contacts).myAddress = new Person.Address(addressListStr);
+                Person.Address newAddress = new Person.Address(addressListStr);
+               //Set Update Address on local machine
+                
+                Person p = SearchContactById(input);
+                p.myAddress = newAddress;
+                //Update on Database
+                string queryUpdateString =$"update Address set Streetname = {p.myAddress.StreetName}, HouseNumber = {p.myAddress.HouseNum}, City = {p.myAddress.City}, State = {p.myAddress.State}, ZipCode={p.myAddress.Zipcode}, Country = {p.myAddress.Country} where PersonId = {p.Pid}";
+
+                //queryInsertString.ForEach(s => Console.WriteLine(s));
+                //Adds the person to the database
+                useConnection(queryUpdateString);
             }
             
             Console.WriteLine("Do you wish to change the Phone Number? (Y/N)");
@@ -257,49 +282,39 @@ namespace PhoneAppLibrary
                 string aCode = Console.ReadLine();
                 Console.WriteLine("Please enter the Phone Number");
                 string pNumber = Console.ReadLine();
-                Person p = SearchContactById(Contacts);
+                Person p = SearchContactById(input);
                 p.myPhone = new Person.Phone(p.Pid, cCode, aCode, pNumber);
+                Console.WriteLine("\t\tUpdated Contact");
+                p.Print();
+                //Update database
+                string queryUpdateString = $"update Phones set CountryCode = {p.myPhone.CountryCode}, AreaCode = {p.myPhone.AreaCode}, PhoneNumber  = {p.myPhone.Number} where PersonId = {p.Pid}";
+                useConnection(queryUpdateString);
 
             }
-           
-
-
-            //Prints all contacts to the Console
-            Contacts.ForEach(i => Console.Write("{0}\r\n", i));
-
-            //Get contact to edit
-            int input = Convert.ToInt32(Console.Read());
-
-
 
         }
-        public Person SearchContactById(List<Person> Directory)
+        public List<Person> SearchByFirstName(string fName)
         {
-            Contacts.ForEach(p => p.Print());
-               Console.WriteLine("Enter Pid of person");
-
-            int Pid=0;
-
-            try
-            {
-                Pid = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (FormatException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            //search collections
-
-            foreach (Person p in Directory)
-            {
-                if (p.Pid.Equals(Pid))
-                {
-                    return p;
-                }
-            }
-            return null;
+            
+            return(from person in Contacts where person.FirstName == fName select person).ToList<Person>() ;
         }
-        public static void ListPrint(List<Person> lp) { lp.ForEach(person=>person.Print()); }
+
+        public static void ListPrint(List<Person> lp) {
+            String s = String.Format("\n{0,5} {1,15} {2,15}, {3,5}, {4,10}", "Pid", "First Name", "Last Name", "Gender", "Date of Birth\n");
+            Console.WriteLine(s);
+            lp.ForEach(person => person.Print());
+
+        }
+
+        public void getJSON()
+        {
+
+            string s = JsonConvert.SerializeObject(Contacts);
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter("C:/Users/Kevin/source/repos/kaur-code/PersonContactApp/ContactLibrary/json.txt")) {
+                file.WriteLine(s);
+            };
+        }
+
     }
    
     #endregion

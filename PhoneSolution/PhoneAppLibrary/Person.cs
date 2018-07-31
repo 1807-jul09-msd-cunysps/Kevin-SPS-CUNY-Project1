@@ -179,8 +179,6 @@ namespace PhoneAppLibrary
             Console.WriteLine("Please enter the phone number without area code and dashes");
             personString.Add(Console.ReadLine());
 
-            personString.ForEach(p => Console.WriteLine($"Value: {p}, Type: {p.GetType()}"));
-
             if (personString.Count() == 14)
             {
                 return personString;
@@ -217,23 +215,14 @@ namespace PhoneAppLibrary
 
         public void Print()
         {
-            String s = String.Format("{0,5} {1,15} {2,15}", this.Pid, this.FirstName, this.LastName);
-            Console.WriteLine(s);
+            
 
-            //Console.WriteLine(this.Pid);
-            //Console.WriteLine(this.FirstName);
-            //Console.WriteLine(this.LastName);
-            //Console.WriteLine(this.Gender);
-            //Console.WriteLine(this.DoB);
-            //Console.WriteLine(this.myAddress.StreetName);
-            //Console.WriteLine(this.myAddress.HouseNum);
-            //Console.WriteLine(this.myAddress.City);
-            //Console.WriteLine(this.myAddress.Zipcode);
-            //Console.WriteLine(this.myAddress.Country);
-            //Console.WriteLine(this.myPhone.CountryCode);
-            //Console.WriteLine(this.myPhone.AreaCode);
-            //Console.WriteLine(this.myPhone.Number);
-        }
+
+            String s = String.Format("{0,5} {1,15} {2,15} {3,5} {4,25}", this.Pid, this.FirstName, this.LastName, this.Gender, this.myAddress.HouseNum+' '+this.myAddress.StreetName);
+            s += String.Format("{0,12} {1,12} {2,15} {3, 15}", this.myAddress.City, this.myAddress.State, this.myAddress.Zipcode, this.myAddress.Country);
+            s += String.Format("{0,8} {1,8}{2,12}", this.myPhone.CountryCode, this.myPhone.AreaCode, this.myPhone.Number);
+            Console.WriteLine(s);
+                    }
         public static string NoPunctuation(string s)
         {
             string s2 = new string(s.Where(c => !char.IsPunctuation(c)).ToArray());

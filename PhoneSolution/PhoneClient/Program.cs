@@ -12,6 +12,7 @@ namespace PhoneAppLibrary
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(170, 59);
             //Display UI on Console
             UI uI = new UI();
             uI.ReadContacts();
