@@ -1,4 +1,4 @@
-﻿
+﻿$(document).ready(function() { alert('Register.js works'); } ());
 //bind function welcome() to event
 function welcome() {
     var data = document.querySelectorAll("input");
@@ -41,6 +41,14 @@ function checkAdd() {
     }
 
 }
+function validateAge() {
+    alert('inside validateAge()');
+    var age = $("#age").val();
+    if (age < 15 || age > 110) {
+        $("#ageGroup").addClass("form-group has-warning");
+    }
+
+}
 
 function checkContactForm(e) {
     //Need to validate form before submission
@@ -51,5 +59,8 @@ function checkContactForm(e) {
     var error = document.getElementById("error").value;
 
 }
+$(document).on('blur', '#age', validateAge());
+
 
 //e.preventDefault:     Prevents the submission from being submission
+//$("#aboutme").attr("href", "aboutme.html");
