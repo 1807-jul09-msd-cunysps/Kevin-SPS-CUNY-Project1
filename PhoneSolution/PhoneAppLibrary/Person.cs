@@ -151,9 +151,10 @@ namespace PhoneAppLibrary
             personString.Add(Console.ReadLine());
             Console.WriteLine("Please enter the last name of the person");
             personString.Add(Console.ReadLine());
-            Console.WriteLine("Please enter the Date of Birth");
-            personString.Add(Console.ReadLine());
+            
             Console.WriteLine("Please enter the gender of the person ('M' or 'F' or 'U' for undeclared");
+            personString.Add(Console.ReadLine());
+            Console.WriteLine("Please enter the Date of Birth");
             personString.Add(Console.ReadLine());
 
 
@@ -197,9 +198,9 @@ namespace PhoneAppLibrary
         {
             List<string> addStr = new List<string>();
 
-            Console.WriteLine("Please enter the house number of the address: ");
-            addStr.Add(Convert.ToString(Console.ReadLine()));
             Console.WriteLine("Please enter the street name of the address: ");
+            addStr.Add(Convert.ToString(Console.ReadLine()));
+            Console.WriteLine("Please enter the house number of the address: ");
             addStr.Add(Convert.ToString(Console.ReadLine()));
             Console.WriteLine("Please enter the city: ");
             addStr.Add(Convert.ToString(Console.ReadLine()));

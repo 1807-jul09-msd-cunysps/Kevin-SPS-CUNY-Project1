@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneClient", "PhoneClient\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneAppLibrary", "PhoneAppLibrary\PhoneAppLibrary.csproj", "{18E8F547-BC8B-494D-BD33-BFF3B3DF53DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI Test", "UI Test\UI Test.csproj", "{360C8439-5C90-4BE1-9281-85C873170023}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{18E8F547-BC8B-494D-BD33-BFF3B3DF53DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18E8F547-BC8B-494D-BD33-BFF3B3DF53DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18E8F547-BC8B-494D-BD33-BFF3B3DF53DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{360C8439-5C90-4BE1-9281-85C873170023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{360C8439-5C90-4BE1-9281-85C873170023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{360C8439-5C90-4BE1-9281-85C873170023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{360C8439-5C90-4BE1-9281-85C873170023}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

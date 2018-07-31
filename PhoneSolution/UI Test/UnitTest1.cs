@@ -7,13 +7,17 @@ namespace UI_Test
     [TestClass]
     public class UnitTest1
     {
-        Person p = new Person(Person.PopulatePersonListString());
-        Person q = new Person(Person.PopulatePersonListString());
-        q.FirstName = q.FirstName.Concat("er");
+      
         [TestMethod]
-        public void TestSearchContactById(int id)
+        public void TestSearchContactById()
         {
             //arrange
+            Person p = new Person(Person.PopulatePersonListString());
+            Person q = new Person(Person.PopulatePersonListString());
+            string s = q.FirstName;
+            string s2 = q.LastName;
+            q.FirstName = s + "er";
+            q.LastName = s2;
 
             //act
 

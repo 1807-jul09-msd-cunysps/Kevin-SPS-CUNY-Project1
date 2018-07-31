@@ -181,7 +181,7 @@ namespace PhoneAppLibrary
             //be repeated
 
 
-            Person person = new Person(Person.PopulatePersonListString());
+            Person person = new Person(Person.GetPersonInfo());
             Contacts.Add(person);
 
             //Adds the person to the database
@@ -258,13 +258,15 @@ namespace PhoneAppLibrary
                 
                 Console.WriteLine("Please enter the new Address");
                 List<string> addressListStr = Person.GetAddressListStr();
+                addressListStr.Insert(0, Convert.ToString(input));
+                foreach (string s in addressListStr) { Console.WriteLine(s); };
                 Person.Address newAddress = new Person.Address(addressListStr);
                //Set Update Address on local machine
                 
                 Person p = SearchContactById(input);
                 p.myAddress = newAddress;
                 //Update on Database
-                string queryUpdateString =$"update Address set Streetname = {p.myAddress.StreetName}, HouseNumber = {p.myAddress.HouseNum}, City = {p.myAddress.City}, State = {p.myAddress.State}, ZipCode={p.myAddress.Zipcode}, Country = {p.myAddress.Country} where PersonId = {p.Pid}";
+                string queryUpdateString =$"update Address set Streetname = '{p.myAddress.StreetName}', HouseNumber = '{p.myAddress.HouseNum}', City = '{p.myAddress.City}', State = '{p.myAddress.State}', ZipCode='{p.myAddress.Zipcode}', Country = '{p.myAddress.Country}' where PersonId = '{p.Pid}'";
 
                 //queryInsertString.ForEach(s => Console.WriteLine(s));
                 //Adds the person to the database
@@ -287,7 +289,7 @@ namespace PhoneAppLibrary
                 Console.WriteLine("\t\tUpdated Contact");
                 p.Print();
                 //Update database
-                string queryUpdateString = $"update Phones set CountryCode = {p.myPhone.CountryCode}, AreaCode = {p.myPhone.AreaCode}, PhoneNumber  = {p.myPhone.Number} where PersonId = {p.Pid}";
+                string queryUpdateString = $"update Phones set CountryCode = '{p.myPhone.CountryCode}', AreaCode = '{p.myPhone.AreaCode}', PhoneNumber  = '{p.myPhone.Number}' where PersonId = '{p.Pid}'";
                 useConnection(queryUpdateString);
 
             }
