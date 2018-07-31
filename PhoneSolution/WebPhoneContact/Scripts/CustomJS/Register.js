@@ -1,5 +1,4 @@
-﻿$(document).ready(function() { alert('Register.js works'); } ());
-//bind function welcome() to event
+﻿
 function welcome() {
     var data = document.querySelectorAll("input");
     alert("Welcome" + articles);
@@ -41,7 +40,9 @@ function checkAdd() {
     }
 
 }
-function validateAge() {
+
+function RevalidateAge() {
+    debugger;
     alert('inside validateAge()');
     var age = $("#age").val();
     if (age < 15 || age > 110) {
