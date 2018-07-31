@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <link href="StyleSheet.css" rel="stylesheet" />
     <link href="Content/bootstrap-grid.css" rel="stylesheet" />
-    <script src="Scripts/bootstrap.js"></script>
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../Scripts/jquery-3.0.0.js"></script>
+
+    <script src="../Scripts/CustomJS/EventHandler.js"></script>
     <title>
         The Azure Netspace
     </title>
@@ -15,12 +18,9 @@
 <body>
     <div class="jumbotron">
         <h1 class="display-1">The Azure Netspace</h1>
-        <p class="lead">Website about and by Kevin Tang</p>
         <hr class="my-4">
         <p></p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
+   
     </div>
 
 
@@ -28,26 +28,26 @@
         Website by Kevin Tang
     </h3>
     <div class="container">
-        <div class="row">
-            <div class="col-3">
-                <!--<a class="btn btn-primary" href="Home.html" role="button">Home</a>-->
-                <button class="btn btn-primary">Home</button>
-            </div>
-            <div class="col-3">
-                <a href="aboutme.html" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Primary link</a>
-            </div>
-            
-            <div class="col-3">
 
-                 <button class="btn btn-primary" href="contact.html">Contact</button>
-            </div>
-         </div>
+        <div class="btn-group btn-group-lg">
+            <!--<a class="btn btn-primary" href="Home.html" role="button">Home</a>-->
+            <button type="button" class="btn btn-primary" id="home">Home</button>
+            <button type="button" class="btn btn-primary" id="aboutme">About Me</button>
+            <button type="button" class="btn btn-primary" id="contact">Contact</button>
+            
+        </div>
+
+
     </div>
 
 
 
     <div id="Main Body">
         <section>
+            <article>
+                Hi, welcome to my website. This site is used to test HTML, CSS, Javascript frameworks learned at Revature
+
+            </article>
             Kevin Tang
         </section>
         <section>

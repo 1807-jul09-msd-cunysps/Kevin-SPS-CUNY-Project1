@@ -16,102 +16,104 @@
     </section>
 
     <!--Person Info-->
-    <form class="form-horizontal">
+    <form class="form-horizontal" name="ContactForm" onsubmit="validate()">
         <h1>
             Personal Information
         </h1>
-            <form-inline>
-                <div class="form-check form-check-inline">
-                    <div class="col-lg-4">
-                        <div class="form-group-sm">
-                            <label class="form-check-label" for="FirstName">First Name*</label>
-                            <input type="text" class="form-check-input" id="firstname" />
-                        </div>
+        <form-inline>
+            <div class="form-check form-check-inline">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label class="form-check-label" for="FirstName">First Name*</label>
+                        <input type="text" class="form-control" id="firstname" />
                     </div>
+                </div>
 
-                    <div class="col-lg-4">
-                        <div class="form-group-sm">
-                            <label class="form-check-label" for="LastName">Last Name*</label>
-                            <input type="text" class="form-control" id="lastname" />
-                        </div>
-                    </div>
-                </div>
-            </form-inline>
-        </form>
-    <form>
                 <div class="col-lg-4">
-                    <div class="form-group  form-control-sm">
-                        <label for="Age">Age</label>
-                        <input type="text" class="form-control" id="age" />
-                    </div>
-                </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="form-group  form-control-sm">
-                        <label for="Gender">Gender</label>
-                        <input type="text" class="form-control" id="gender" />
+                    <div class="form-group">
+                        <label class="form-check-label" for="LastName">Last Name*</label>
+                        <input type="text" class="form-control" id="lastname" />
                     </div>
                 </div>
             </div>
-        </span>
-    </form>
-    <!--Address-->
-    <form>
+        </form-inline>
+        <div class="form-check form-check-inline">
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="form-check-label" for="Age">Age</label>
+                    <input type="text" class="form-control" id="age" />
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="form-check-label" for="Gender">Gender</label>
+                    <input type="text" class="form-control" id="gender" />
+                </div>
+            </div>
+        </div>
         <h3>Current Address</h3>
         <div id="CurrentAddress">
+
+            <div class="form-group col-6" id="Address">
+                <label for="Address">Address Line 1</label>
+                <input type="text" class="form-control form-control" id="Address" />
+            </div>
+
+            <div class="form-group col-6" id="Address2">
+                <label for="Address2">Address Line 2</label>
+                <input type="text" class="form-control form-control" id="Address2" />
+            </div>
             <div class="form-check form-check-inline">
-                <div class="col-lg-6">
-                    <div class="form-group form-control-sm" id="Address">
-                        <label for="Address">Address</label>
-                        <input type="text" class="form-control form-control-sm" id="Address" />
-                    </div>
+                <div class="form-group col-8" id="State">
+                    <label for="State">State</label>
+                    <input type="text" class="form-control form-control" id="State" />
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="form-group form-control-sm" id="Address2">
-                        <label for="Address Line 2">Address Line 2</label>
-                        <input type="text" class="form-control" id="AddressLine2" />
-                    </div>
+            <div class="form-check form-check-inline">
+                <div class="form-group col-12" id="City">
+                    <label for="City">City</label>
+                    <input type="text" class="form-control form-control" id="City" />
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="form-group form-control-sm" id="state">
-                        <label for="State">State</label>
-                        <input type="text" class="form-control" id="State" />
-                    </div>
+            <div class="form-check form-check-inline">
+                <div class="form-group col-12" id="Zip Code">
+                    <label for="ZipCode">Zip Code</label>
+                    <input type="text" class="form-control form-control" id="ZipCode" />
                 </div>
+            </div>
 
-                <div class="col-lg-5">
 
-                    <div class="form-group form-control-sm" id="City">
-                        <label for="City">City</label>
-                        <input type="text" class="form-control" id="City" />
-                    </div>
+
+
+            <div class="form-check form-check-inline">
+                <div class="form-group col-6" id="Country">
+                    <select>
+                        <option value="United States">United States</option>
+                        <option value="England">England</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Hong Kong">Hong Kong</option>
+                    </select>
+                </div>
+                <div class="form-check form-check-inline" id="chkPermAddress">
+                    <input type="checkbox" id="chkPermanentAddress" value="on" onchange="checkAdd()" />
+                    <label for="chkPermanentAddress" class="form-check-label">Is this your permanent address?</label>
                 </div>
             </div>
-            <div class="row align-content-center">
-
-                <select>
-                    <option value="United States">United States</option>
-                    <option value="England">England</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Hong Kong">Hong Kong</option>
-                </select>
-            </div>
-            <input type="checkbox" id="chkPermanentAddress" value="on" onchange="checkAdd()" />
-            <label for="chkPermanentAddress">Is this your permanent address?</label>
         </div>
-    </form>
-
-    <form>
         <form-group>
-            <div id="PermanentAd`dress">
+            <div id="PermanentAddress">
 
             </div>
         </form-group>
-    
+        <div class="btn-group btn-group-lg">
+            <!--<a class="btn btn-primary" href="Home.html" role="button">Home</a>-->
+            <button type="submit" class="btn btn-primary btn-lg" id="Submit">Submit</button>
+
+
+        </div>
+
 
     </form>
 </body>
