@@ -1,0 +1,14 @@
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneClient\bin\Release\PhoneClient.exe.config
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneClient\bin\Release\PhoneClient.exe
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneClient\bin\Release\PhoneClient.pdb
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneClient\bin\Release\PhoneAppLibrary.dll
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneClient\bin\Release\NLog.dll
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneClient\bin\Release\Newtonsoft.Json.dll
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneClient\bin\Release\PhoneAppLibrary.pdb
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneClient\bin\Release\NLog.xml
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneClient\bin\Release\Newtonsoft.Json.xml
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneClient\obj\Release\PhoneClient.csprojAssemblyReference.cache
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneClient\obj\Release\PhoneClient.csproj.CoreCompileInputs.cache
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneClient\obj\Release\PhoneClient.csproj.CopyComplete
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneClient\obj\Release\PhoneClient.exe
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneClient\obj\Release\PhoneClient.pdb

@@ -57,23 +57,27 @@ namespace PhoneAppLibrary
 
         public int UIRead()
         {
-            
-            int input = Convert.ToInt32(Console.ReadLine());
-            try
-            {
-                return input;
+            bool isNotInt = true;
+            while (isNotInt) { 
+                try
+                {
+                    int input = Convert.ToInt32(Console.ReadLine());
+                    isNotInt = false;
+                    return input;
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine("Please enter a valid integer");
+                    
+                }
+                catch (OverflowException ex)
+                {
+                    Console.WriteLine("OverflowException");
+                    //logger.LogException(ex, "OverflowException occurred at UIRead()");
+ 
+                }
             }
-            catch (FormatException)
-            {
-                Console.WriteLine("Format Exception");
-                return 0;
-            }
-            catch (OverflowException)
-            {
-                Console.WriteLine("OverflowException");
-                return 0;
-            }
-
+            return 7;
         }
         public bool IsOpen()
         {
@@ -108,7 +112,7 @@ namespace PhoneAppLibrary
                 case 1:
                     ReadContacts();
 
-                    foreach(Person p in Contacts) { p.Print(); }
+                    ListPrint(Contacts);
                     break;
                 case 2:
                     AddContact();

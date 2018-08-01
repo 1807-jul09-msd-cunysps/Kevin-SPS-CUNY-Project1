@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneAppLibrary", "PhoneApp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI Test", "UI Test\UI Test.csproj", "{360C8439-5C90-4BE1-9281-85C873170023}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactDAL", "ContactDAL\ContactDAL.csproj", "{DB814EA5-281E-4FC1-BBC2-717AB6AB8D11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactAPI", "ContactAPI2\ContactAPI.csproj", "{1C79502C-A481-404A-BA1B-ABD6A6F9F066}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{360C8439-5C90-4BE1-9281-85C873170023}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{360C8439-5C90-4BE1-9281-85C873170023}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{360C8439-5C90-4BE1-9281-85C873170023}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB814EA5-281E-4FC1-BBC2-717AB6AB8D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB814EA5-281E-4FC1-BBC2-717AB6AB8D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB814EA5-281E-4FC1-BBC2-717AB6AB8D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB814EA5-281E-4FC1-BBC2-717AB6AB8D11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C79502C-A481-404A-BA1B-ABD6A6F9F066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C79502C-A481-404A-BA1B-ABD6A6F9F066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C79502C-A481-404A-BA1B-ABD6A6F9F066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C79502C-A481-404A-BA1B-ABD6A6F9F066}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

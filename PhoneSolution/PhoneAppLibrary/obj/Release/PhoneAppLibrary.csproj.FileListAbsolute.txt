@@ -1,0 +1,11 @@
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\bin\Release\PhoneAppLibrary.dll
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\bin\Release\PhoneAppLibrary.pdb
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\bin\Release\Newtonsoft.Json.dll
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\bin\Release\NLog.dll
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\bin\Release\Newtonsoft.Json.xml
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\bin\Release\NLog.xml
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\obj\Release\PhoneAppLibrary.csprojAssemblyReference.cache
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\obj\Release\PhoneAppLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\obj\Release\PhoneAppLibrary.csproj.CopyComplete
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\obj\Release\PhoneAppLibrary.dll
+C:\Users\Kevin\Source\Repos\Kevin-SPS-CUNY-Project0\PhoneSolution\PhoneAppLibrary\obj\Release\PhoneAppLibrary.pdb
