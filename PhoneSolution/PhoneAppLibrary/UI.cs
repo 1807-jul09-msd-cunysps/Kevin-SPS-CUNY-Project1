@@ -246,6 +246,10 @@ namespace PhoneAppLibrary
                 {
                     Console.WriteLine("Please enter a valid id integer");
                 }
+                catch(OverflowException)
+                {
+                    break;
+                }
             }
 
         #endregion
