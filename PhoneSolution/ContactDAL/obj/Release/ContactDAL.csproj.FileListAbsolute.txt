@@ -1,0 +1,13 @@
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactDAL\bin\Release\ContactDAL.dll
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactDAL\bin\Release\ContactDAL.pdb
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactDAL\bin\Release\PhoneAppLibrary.dll
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactDAL\bin\Release\NLog.dll
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactDAL\bin\Release\Newtonsoft.Json.dll
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactDAL\bin\Release\PhoneAppLibrary.pdb
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactDAL\bin\Release\NLog.xml
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactDAL\bin\Release\Newtonsoft.Json.xml
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactDAL\obj\Release\ContactDAL.csprojAssemblyReference.cache
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactDAL\obj\Release\ContactDAL.csproj.CoreCompileInputs.cache
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactDAL\obj\Release\ContactDAL.csproj.CopyComplete
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactDAL\obj\Release\ContactDAL.dll
+C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactDAL\obj\Release\ContactDAL.pdb

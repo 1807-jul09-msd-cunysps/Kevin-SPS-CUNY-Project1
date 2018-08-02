@@ -11,12 +11,12 @@ namespace ContactDAL
 {
     public class PersonCrud
     {
+        public static string connectionString = "Data Source=kevin-adventureworks.database.windows.net;Initial Catalog=PhoneApp;User ID=kevin;Password=revature2018!";
 
         public List<Person> GetPersons()
         {
             List<Person> Contacts = new List<Person>();
-            string connectionString = "Data Source=kevin-adventureworks.database.windows.net;Initial Catalog=PhoneApp;User ID=kevin;Password=revature2018!";
-            string queryString = "Select * from Persons";
+            string queryString = "select Pid, FirstName, LastName, Gender, DateOfBirth, StreetName, HouseNumber, City, State, ZipCode, Country,  CountryCode, AreaCode, PhoneNumber From persons left join Address on Pid = PersonID left join Phones on Pid = Phones.PersonID";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
@@ -44,6 +44,28 @@ namespace ContactDAL
                 connection.Close();
             }
             return Contacts;
+        }
+        public void InsertPerson(Person person)
+        {
+            string queryInsertString = "";
+            queryInsertString+=($"insert into Persons values ('{person.FirstName}', '{person.LastName}', '{person.Gender}', '{person.DoB}');");
+            queryInsertString+=($"insert into Address values((select Max(Persons.Pid) from Persons), '{person.myAddress.StreetName}', '{person.myAddress.HouseNum}', '{person.myAddress.City}', '{person.myAddress.State}', '{person.myAddress.Zipcode}', '{person.myAddress.Country}'); ");
+            queryInsertString+=($"insert into Phones values((select Max(Persons.Pid) from Persons), '{person.myPhone.CountryCode}', '{person.myPhone.AreaCode}', '{person.myPhone.Number}'); ");
+            useConnection(queryInsertString);
+            //string queryString = 
+        }
+         
+        public static void useConnection(string queryString)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                SqlCommand command = new SqlCommand(queryString, connection);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+
+            }
         }
     }
 

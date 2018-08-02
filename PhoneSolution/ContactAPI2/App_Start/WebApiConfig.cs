@@ -9,6 +9,10 @@ namespace ContactAPI2
     {
         public static void Register(HttpConfiguration config)
         {
+            //Allow CORS
+            config.EnableCors();
+
+
             // Web API configuration and services
 
             // Web API routes

@@ -20,7 +20,7 @@ namespace PhoneAppLibrary
         bool isOpen = true;
 
         string connectionString = "Data Source=kevin-adventureworks.database.windows.net;Initial Catalog=PhoneApp;User ID=kevin;Password=revature2018!";
-        string queryString = "select Pid, FirstName, LastName, Gender, DateOfBirth, StreetName, HouseNumber, City, State, ZipCode, Country,  CountryCode, AreaCode, PhoneNumber From persons left join Address on Pid = PersonID left join Phones on Pid = Phones.PersonID";
+            string queryString = "select Pid, FirstName, LastName, Gender, DateOfBirth, StreetName, HouseNumber, City, State, ZipCode, Country,  CountryCode, AreaCode, PhoneNumber From persons left join Address on Pid = PersonID left join Phones on Pid = Phones.PersonID";
         #endregion
 
         //constructor//UIDisplay()

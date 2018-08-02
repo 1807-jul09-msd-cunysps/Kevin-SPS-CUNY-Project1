@@ -25,5 +25,25 @@ namespace ContactAPI.Controllers
         }
 
 
+        //ADD
+        [HttpPost]
+        public IHttpActionResult Post(Person p)
+        {
+            if (p != null)
+            {
+
+                // Make a call to CRUD Method to insert in to DB
+                crud.InsertPerson(p);
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        // to do  Put
+
+        // to do Delete
+
     }
 }

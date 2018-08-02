@@ -42,11 +42,18 @@ function checkAdd() {
 }
 
 function RevalidateAge() {
-    debugger;
-    alert('inside validateAge()');
+   
     var age = $("#age").val();
+  
     if (age < 15 || age > 110) {
-        $("#ageGroup").addClass("form-group has-warning");
+        $("#age").addclass(".isnotvalid");
+        #("#age").removeclass("isvalid");
+
+    }
+    else {
+        $("#age").addclass(".isvalid");
+        $("#age").removeclass(".isnotvalid");
+
     }
 
 }

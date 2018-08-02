@@ -18,7 +18,7 @@
     </section>
 
     <!--Person Info-->
-    <form class="form-horizontal" name="ContactForm" onsubmit="validate()">
+    <form class="form-horizontal" "needs-validation" novalidate  name="ContactForm" onsubmit="validate()">
         <h1>
             Personal Information
         </h1>
@@ -44,8 +44,9 @@
             <div class="col-lg-4">
                 <div class="form-group" name="ageGroup">
                     <label class="form-check-label" for="Age">Age</label>
-                    <input type="text" class="form-control" id="age" onblur="RevalidateAge()"/>
+                    <input type="text" class="form-control" id="age" onblur="RevalidateAge()" />
                 </div>
+
             </div>
 
             <div class="col-lg-4">
@@ -54,6 +55,7 @@
                     <input type="text" class="form-control" id="gender" />
                 </div>
             </div>
+            <div class="agevalidation"></div>
         </div>
         <h3>Current Address</h3>
         <div id="CurrentAddress">

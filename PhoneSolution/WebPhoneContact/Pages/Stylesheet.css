@@ -74,3 +74,11 @@ article{
     width: 300px;
 
 }
+.isvalid{
+    border-color: lawngreen;
+    color: lawngreen;
+}
+.isnotvalid{
+    color: red;
+    border-color: red;
+}
