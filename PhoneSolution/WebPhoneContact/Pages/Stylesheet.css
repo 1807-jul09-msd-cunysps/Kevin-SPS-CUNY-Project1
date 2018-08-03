@@ -75,10 +75,13 @@ article{
 
 }
 .isvalid{
-    border-color: lawngreen;
+    background-color: lawngreen;
     color: lawngreen;
 }
 .isnotvalid{
-    color: red;
+    background-color: red;
     border-color: red;
+}
+.radio-inline {
+    display: inline-block;
 }

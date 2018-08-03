@@ -7,6 +7,7 @@
     <link href="../Content/bootstrap.css" rel="stylesheet" />
         <script src="../Scripts/jquery-3.0.0.js"></script>
         <script src="../Scripts/bootstrap.js"></script>
+        <script src="../Scripts/CustomJS/jsDate.js"></script>
     <script src="../Scripts/CustomJS/Register.js"></script>
 </head>
 <body>
@@ -18,45 +19,47 @@
     </section>
 
     <!--Person Info-->
-    <form class="form-horizontal" "needs-validation" novalidate  name="ContactForm" onsubmit="validate()">
+    <form class="form-horizontal needs-validation" novalidate  name="ContactForm" onsubmit="validate()">
         <h1>
             Personal Information
         </h1>
-        <form-inline>
+        <div form-row>
             <div class="form-check form-check-inline">
                 <div class="col-lg-4">
                     <div class="form-group">
                         <label class="form-check-label" for="FirstName">First Name*</label>
-                        <input type="text" class="form-control" id="firstname" />
+                        <input type="text" class="form-control" id="firstName" />
                     </div>
                 </div>
 
                 <div class="col-lg-4">
                     <div class="form-group">
                         <label class="form-check-label" for="LastName">Last Name*</label>
-                        <input type="text" class="form-control" id="lastname" />
+                        <input type="text" class="form-control" id="lastName" />
                     </div>
                 </div>
             </div>
-        </form-inline>
-        <div class="form-check form-check-inline">
-
+        </div>
+        <div class="form-row">
             <div class="col-lg-4">
                 <div class="form-group" name="ageGroup">
-                    <label class="form-check-label" for="Age">Age</label>
-                    <input type="text" class="form-control" id="age" onblur="RevalidateAge()" />
+                    <label class="form-check-label" for="DoB">Date of Birth</label>
+                    <input type="date" class ="form-control" id="DoB" name="DateOfBirth" onblur="RevalidateAge()" />
+                    <small id="dobHelp" class="text-danger"></small>
                 </div>
 
             </div>
 
             <div class="col-lg-4">
-                <div class="form-group">
-                    <label class="form-check-label" for="Gender">Gender</label>
-                    <input type="text" class="form-control" id="gender" />
+                <div class="radio">
+                    <label class="radio-inline"><input type="radio" id="male" value="M" name="gender" checked>Male</label>
+                    <label class="radio-inline"><input type="radio" id="female" value="F" name="gender" checked>Female</label>
+                    <label class="radio-inline"><input type="radio" id="undisclosed" value="U" name="gender" checked>Undisclosed</label>
                 </div>
             </div>
             <div class="agevalidation"></div>
         </div>
+
         <h3>Current Address</h3>
         <div id="CurrentAddress">
 

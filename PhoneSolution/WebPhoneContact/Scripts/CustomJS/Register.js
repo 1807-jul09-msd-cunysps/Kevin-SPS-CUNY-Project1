@@ -1,4 +1,5 @@
 ﻿
+
 function welcome() {
     var data = document.querySelectorAll("input");
     alert("Welcome" + articles);
@@ -42,17 +43,28 @@ function checkAdd() {
 }
 
 function RevalidateAge() {
-   
-    var age = $("#age").val();
+    debugger;
+    var dob = $("#DoB").val();
+    alert(dob);
+    var present = new Date();
+    alert(present);
+    var age = Date.DateDiff("yyyy", dob, present)
+    alert(age);
+    var dob_element = $("#DoB");
   
     if (age < 15 || age > 110) {
-        $("#age").addclass(".isnotvalid");
-        #("#age").removeclass("isvalid");
-
+ 
+        dob_element.removeClass("is-valid");
+        dob_element.addClass("is-invalid");
+        var dobHelp = $("#dobHelp");
+        var content = document.createTextNode("Age not within 15:110 years of age");
+        dobHelp.appendChild(content);
     }
     else {
-        $("#age").addclass(".isvalid");
-        $("#age").removeclass(".isnotvalid");
+        dob_element.addClass("is-valid");
+        dob_element.removeClass("is-invalid");
+        
+
 
     }
 
@@ -67,7 +79,6 @@ function checkContactForm(e) {
     var error = document.getElementById("error").value;
 
 }
-$(document).on('blur', '#age', validateAge());
 
 
 //e.preventDefault:     Prevents the submission from being submission
