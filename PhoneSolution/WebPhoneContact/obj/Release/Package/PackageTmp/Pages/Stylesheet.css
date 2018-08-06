@@ -1,0 +1,87 @@
+﻿.jumbotron .display-4{
+    font-size = 72px;
+}
+
+.jumbotron,p{
+    color=red;
+    font-size = 40px;
+}
+
+.form-group
+{
+    width: 500px;
+
+}
+body {
+    /*");*/
+
+
+}
+
+article{
+
+}
+button {
+    
+    background-color: #cee3e0;
+    font: bold 20px helvetica white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+
+}
+h1 {
+    font: 32px avant-garde;
+    text-align: center;
+    padding: 15px;
+    outline: solid;
+    color: black;
+}
+/*#AboutMe {
+    width: 200px;
+    height: 100px;
+    background-color: #cee3e0;
+    font: bold 20px helvetica white;
+    text-align: center;
+    display: inline-block;
+    color: #a4d8d0;
+}*/
+
+.button {
+    width: 200px;
+    height: 100px;
+    font: bold 20px helvetica white;
+    text-align: center; 
+    display: inline-block;
+    color: #a4d8d0;
+    align-content:center;
+    border-radius: 4px;
+}
+#banner{
+
+}
+
+b1{
+
+}
+a:visited {
+    color: #73C2FB;
+}
+article{
+    font-size: 14em;
+}
+#chkPermAddress{
+    width: 300px;
+
+}
+.isvalid{
+    background-color: lawngreen;
+    color: lawngreen;
+}
+.isnotvalid{
+    background-color: red;
+    border-color: red;
+}
+.radio-inline {
+    display: inline-block;
+}

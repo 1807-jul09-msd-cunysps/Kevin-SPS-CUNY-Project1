@@ -1,4 +1,18 @@
-﻿
+﻿function validate() {
+    var fName = $("firstName");
+    var lName = $("lastName");
+    var dob = $("Dob");
+    var gender = $("input[name=gender]:checked").val();
+    var address1 = $("address1");
+    var state = $("State");
+    var city = $("City");   
+    var zipcode = $("ZipCode");
+    var country = $("country")
+
+
+
+
+}
 
 function welcome() {
     var data = document.querySelectorAll("input");
@@ -36,9 +50,7 @@ function checkAdd() {
 
         }
     }
-    else {
-
-    }
+   
 
 }
 
@@ -55,10 +67,9 @@ function RevalidateAge() {
         dob_element.addClass("is-invalid");
         var dobHelp = $("#dobHelp");
         var content = document.createTextNode("Age not within 15:110 years of age");
-        alert(typeof (dobHelp));
-        dobHelp.innerHTML = "Age not within 15: 110 years of age";
-    }
-    else {
+          dobHelp.innerHTML = "Age not within 15: 110 years of age";
+         }
+     else {
         dob_element.addClass("is-valid");
         dob_element.removeClass("is-invalid");
         dobHelp.innerHTML = '';
@@ -69,11 +80,22 @@ function RevalidateAge() {
 }
 function checkZipcode() {
     debugger;
-    var zipcode = document.getElementById("zipcode").value;
+    var zipcode = document.getElementById("ZipCode").value;
     var clientKey = "G1KuYkWJ8voqjnOO5RF9xMYvsaF1zlMWR0mR2K9IURb0Vc8vYn7T1qFcga8ZSkUx";
     var url = "https://www.zipcodeapi.com/rest/" + clientKey + "/info.json/" + zipcode + "/radians";
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', url);
+    if ("withCredentials" in xhr) {
+        xhr.open('GET', url);
+    }
+
+    else if (typeof XDomainRequest != "undefined") {
+        xhr = new XDomainRequest();
+        xhr.open('GET', url);
+    }
+
+    else {
+        xhr = null; 
+    }
     xhr.onreadystatechange = function () {    //Call a function when the state changes.
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
             var result = xhr.responseText;
@@ -82,12 +104,60 @@ function checkZipcode() {
                     result = result.substr(1, result.length - 2);
                 }
                 //debugger;
-                locationPopulate(result);
+                zipCodeAPItoLocation(result);
             }
 
         }
-    }
+        }
+    xhr.setRequestHeader()    
     xhr.send();
+}
+
+function zipCodeAPItoLocation(json) {
+    var location = JSON.parse(json);
+    var city = $("$city");
+    var state = $("state");
+    city.val() = location.city;
+    state.val() = location.state;
+}
+
+
+function validFirstName() {
+    var fName = document.forms["ContactForm"]["firstName"];
+    fName.required = true;
+    var fNameHelper = $("#fNameHelper")
+    if (fName.value == "") {
+        var p = document.createElement("p");
+        p.id = "fNameHelperP";
+        p.innerText = "Please enter a first name";
+        if (fNameHelper.hasChildNodes()) {
+            console.log('fNameHelper.hasNodes()');
+            fNameHelper.replaceChild(p);
+        }
+        else {
+            console.log('fNameHelper.appendChild');
+
+            fNameHelper.appendChild(p);
+        }
+        return false;
+    }
+    else {
+        if (fNameHelper.hasChildNodes()) {
+            fNameHelper.RemoveChild(fNameHelper.firstChild());
+        }
+        
+    }
+    return true;
+}
+
+function validLastName() {
+    var lName = document.forms["ContactForm"]["lastName"];
+    lName.required = true;
+    if (lName.value == "") {
+        alert("Enter a last name");
+        return false;
+    }
+    return true;
 }
 //e.preventDefault:     Prevents the submission from being submission
 //$("#aboutme").attr("href", "aboutme.html");
