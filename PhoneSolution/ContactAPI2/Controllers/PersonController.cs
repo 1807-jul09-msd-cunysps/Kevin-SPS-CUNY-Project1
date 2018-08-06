@@ -27,12 +27,10 @@ namespace ContactAPI.Controllers
 
         //ADD
         [HttpPost]
-        public IHttpActionResult Post(Person p)
+        public IHttpActionResult Post([FromBody] Person p)
         {
             if (p != null)
             {
-
-                // Make a call to CRUD Method to insert in to DB
                 crud.InsertPerson(p);
                 return Ok();
             }

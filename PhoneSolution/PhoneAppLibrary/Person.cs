@@ -11,7 +11,6 @@ namespace PhoneAppLibrary
     public class Person
     {
         //Data Members
-        static int max_id = 0;
         //Default Constructor
         public Person()
         {
@@ -23,18 +22,14 @@ namespace PhoneAppLibrary
         public Person(List<string> p)
         {
 
-            Pid = Convert.ToInt32(p[0]);
-            if (Pid > Person.max_id) {
-                Person.max_id = Pid;
-            }
-            FirstName = p[1];
-            LastName = p[2];
-            Gender = p[3];
-            DoB = Convert.ToString(p[4]);
-            myAddress = new Address(Convert.ToInt32(p[0]), p[5], p[6], p[7], p[8], p[9], p[10]);
-            myPhone = new Phone(Convert.ToInt32(p[0]), p[11], p[12], p[13]);
+            FirstName = p[0];
+            LastName = p[1];
+            Gender = p[2];
+            DoB = Convert.ToString(p[3]);
+            myAddress = new Address(p[4], p[5],p[6], p[7], p[8]);
+            myPhone = new Phone(p[9], p[10], p[11]);
         }
-        public Person(int pid, string fName, string lName, string gender, string DoB, Address address, Phone phone)
+        public Person(string fName, string lName, string gender, string DoB, Address address, Phone phone)
         {
             this.Pid = pid;
             this.FirstName = fName;
@@ -73,11 +68,9 @@ namespace PhoneAppLibrary
 
             }
             #region
-            public Address(int pid, string sName, string hNum, string city, string state, string zCode, String Country)
+            public Address(string add, string city, string state, string zCode, string Country)
             {
-                this.Pid = pid;
-                this.StreetName = sName;
-                this.HouseNum = hNum;
+                this.Address1 = add;
                 this.City = city;
                 this.State = state;
                 this.Zipcode = zCode;
@@ -87,23 +80,17 @@ namespace PhoneAppLibrary
             //constructor given List of string
             public Address(List<string> addstr)
             {
-                this.Pid = Convert.ToInt16(addstr[0]);
-                this.StreetName = addstr[1];
-                this.HouseNum = addstr[2];
-                this.City = addstr[3];
-                this.State = addstr[4];
-                this.Zipcode = addstr[5];
-                this.Country = addstr[6];
+                this.City = addstr[0];
+                this.State = addstr[1];
+                this.Zipcode = addstr[2];
+                this.Country = addstr[3];
             }
 
             //Data members
             #region
+
             [DataMember]
-            public int Pid { get; set; }
-            [DataMember]
-            public string StreetName { get; set; }
-            [DataMember]
-            public string HouseNum { get; set; }
+            public string Address1 { get; set; }
             [DataMember]
             public string City { get; set; }
             [DataMember]
@@ -122,15 +109,13 @@ namespace PhoneAppLibrary
         [DataContract]
         public class Phone
         {
-            public Phone(int pid, string cCode, string aCode, string number)
+            public Phone(string cCode, string aCode, string number)
             {
-                this.Pid = pid;
                 this.CountryCode = cCode;
                 this.AreaCode = aCode;
                 this.Number = number;
             }
-            [DataMember]
-            public long Pid { get; set; }
+
             [DataMember]
             public string CountryCode { get; set; }
             [DataMember]
@@ -142,58 +127,58 @@ namespace PhoneAppLibrary
 
         //Returns List of String containing Person fields
         //Requires additional implementation
-        public static List<string> GetPersonInfo()
-        {
-            List<string> personString = new List<string>();
+        //public static List<string> GetPersonInfo()
+        //{
+        //    List<string> personString = new List<string>();
 
-            personString.Add(Convert.ToString(Person.max_id));
-            Console.WriteLine("Please enter the first name of the person");
-            personString.Add(Console.ReadLine());
-            Console.WriteLine("Please enter the last name of the person");
-            personString.Add(Console.ReadLine());
+        //    personString.Add(Convert.ToString(Person.max_id));
+        //    Console.WriteLine("Please enter the first name of the person");
+        //    personString.Add(Console.ReadLine());
+        //    Console.WriteLine("Please enter the last name of the person");
+        //    personString.Add(Console.ReadLine());
             
-            Console.WriteLine("Please enter the gender of the person ('M' or 'F' or 'U' for undeclared");
-            personString.Add(Console.ReadLine());
-            Console.WriteLine("Please enter the Date of Birth");
-            personString.Add(Console.ReadLine());
+        //    Console.WriteLine("Please enter the gender of the person ('M' or 'F' or 'U' for undeclared");
+        //    personString.Add(Console.ReadLine());
+        //    Console.WriteLine("Please enter the Date of Birth");
+        //    personString.Add(Console.ReadLine());
 
 
-            //Address
-            Console.WriteLine("Please enter the Street Name");
-            personString.Add(Console.ReadLine());
-            Console.WriteLine("Please enter the Street Number");
-            personString.Add(Console.ReadLine());
-            Console.WriteLine("Please enter the city");
-            personString.Add(Console.ReadLine());
-            Console.WriteLine("Please enter the state");
-            personString.Add(Console.ReadLine());
-            Console.WriteLine("Please enter the zip code");
-            personString.Add(Console.ReadLine());
-            Console.WriteLine("Please enter the country");
-            personString.Add(Console.ReadLine());
+        //    //Address
+        //    Console.WriteLine("Please enter the Street Name");
+        //    personString.Add(Console.ReadLine());
+        //    Console.WriteLine("Please enter the Street Number");
+        //    personString.Add(Console.ReadLine());
+        //    Console.WriteLine("Please enter the city");
+        //    personString.Add(Console.ReadLine());
+        //    Console.WriteLine("Please enter the state");
+        //    personString.Add(Console.ReadLine());
+        //    Console.WriteLine("Please enter the zip code");
+        //    personString.Add(Console.ReadLine());
+        //    Console.WriteLine("Please enter the country");
+        //    personString.Add(Console.ReadLine());
 
-            //Phone
-            Console.WriteLine("Please enter the Country Code");
-            personString.Add(Console.ReadLine());
-            Console.WriteLine("Please enter the area code (3 numbers)");
-            personString.Add(Console.ReadLine());
-            Console.WriteLine("Please enter the phone number without area code and dashes");
-            personString.Add(Console.ReadLine());
+        //    //Phone
+        //    Console.WriteLine("Please enter the Country Code");
+        //    personString.Add(Console.ReadLine());
+        //    Console.WriteLine("Please enter the area code (3 numbers)");
+        //    personString.Add(Console.ReadLine());
+        //    Console.WriteLine("Please enter the phone number without area code and dashes");
+        //    personString.Add(Console.ReadLine());
 
-            if (personString.Count() == 14)
-            {
-                return personString;
-            }
-            else
-            {
-                for (int i = personString.Count(); i < 14; i++)
-                {
-                    personString.Add(null);
-                }
-                return personString;
-            }
+        //    if (personString.Count() == 14)
+        //    {
+        //        return personString;
+        //    }
+        //    else
+        //    {
+        //        for (int i = personString.Count(); i < 14; i++)
+        //        {
+        //            personString.Add(null);
+        //        }
+        //        return personString;
+        //    }
 
-        }
+        //}
         public static List<string> GetAddressListStr()
         {
             List<string> addStr = new List<string>();
@@ -219,7 +204,7 @@ namespace PhoneAppLibrary
             
 
 
-            String s = String.Format("{0,5} {1,15} {2,15} {3,5} {4,25}", this.Pid, this.FirstName, this.LastName, this.Gender, this.myAddress.HouseNum+' '+this.myAddress.StreetName);
+            String s = String.Format("{0,5} {1,15} {2,15} {3,5} {4,25}", this.Pid, this.FirstName, this.LastName, this.Gender, this.myAddress.HouseNum+' '+this.myAddress.Address1);
             s += String.Format("{0,12} {1,12} {2,15} {3, 15}", this.myAddress.City, this.myAddress.State, this.myAddress.Zipcode, this.myAddress.Country);
             s += String.Format("{0,8} {1,8}{2,12}", this.myPhone.CountryCode, this.myPhone.AreaCode, this.myPhone.Number);
             Console.WriteLine(s);

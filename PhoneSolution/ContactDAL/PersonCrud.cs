@@ -16,7 +16,7 @@ namespace ContactDAL
         public List<Person> GetPersons()
         {
             List<Person> Contacts = new List<Person>();
-            string queryString = "select Pid, FirstName, LastName, Gender, DateOfBirth, StreetName, HouseNumber, City, State, ZipCode, Country,  CountryCode, AreaCode, PhoneNumber From persons left join Address on Pid = PersonID left join Phones on Pid = Phones.PersonID";
+            string queryString = "FirstName, LastName, Gender, DateOfBirth, Address1, City, State, ZipCode, Country,  CountryCode, AreaCode, PhoneNumber From persons left join Address on Pid = PersonID left join Phones on Pid = Phones.PersonID";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);

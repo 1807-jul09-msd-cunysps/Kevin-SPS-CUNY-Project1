@@ -81,21 +81,11 @@ function RevalidateAge() {
 function checkZipcode() {
     debugger;
     var zipcode = document.getElementById("ZipCode").value;
-    var clientKey = "G1KuYkWJ8voqjnOO5RF9xMYvsaF1zlMWR0mR2K9IURb0Vc8vYn7T1qFcga8ZSkUx";
+    var clientKey = "js-jqtP0V5Muaay0aUDnqFKsN0VKAzmcDA90qziZngGVPqeUNQRCusYGgHXN2ZdJjCS";
     var url = "https://www.zipcodeapi.com/rest/" + clientKey + "/info.json/" + zipcode + "/radians";
     var xhr = new XMLHttpRequest();
-    if ("withCredentials" in xhr) {
-        xhr.open('GET', url);
-    }
+   xhr.open('GET', url);
 
-    else if (typeof XDomainRequest != "undefined") {
-        xhr = new XDomainRequest();
-        xhr.open('GET', url);
-    }
-
-    else {
-        xhr = null; 
-    }
     xhr.onreadystatechange = function () {    //Call a function when the state changes.
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
             var result = xhr.responseText;
@@ -103,22 +93,63 @@ function checkZipcode() {
                 if (result.charAt(0) === '"' && result.charAt(result.length - 1) === '"') {
                     result = result.substr(1, result.length - 2);
                 }
-                //debugger;
+                debugger;
                 zipCodeAPItoLocation(result);
             }
 
         }
         }
-        
     xhr.send();
 }
 
 function zipCodeAPItoLocation(json) {
+    debugger;
     var location = JSON.parse(json);
-    var city = $("$city");
-    var state = $("state");
-    city.val() = location.city;
-    state.val() = location.state;
+    var city = document.getElementById("City");
+    var state = document.getElementById("State");
+
+    console.log(location.city + " " + location.state);
+    city.value = location.city;
+    state.value= location.state;
+}
+
+
+function validFirstName() {
+    var fName = document.forms["ContactForm"]["firstName"];
+    fName.required = true;
+    var fNameHelper = $("#fNameHelper")
+    if (fName.value == "") {
+        var p = document.createElement("p");
+        p.id = "fNameHelperP";
+        p.innerText = "Please enter a first name";
+        if (fNameHelper.hasChildNodes()) {
+            console.log('fNameHelper.hasNodes()');
+            fNameHelper.replaceChild(p);
+        }
+        else {
+            console.log('fNameHelper.appendChild');
+
+            fNameHelper.appendChild(p);
+        }
+        return false;
+    }
+    else {
+        if (fNameHelper.hasChildNodes()) {
+            fNameHelper.RemoveChild(fNameHelper.firstChild());
+        }
+        
+    }
+    return true;
+}
+
+function validLastName() {
+    var lName = document.forms["ContactForm"]["lastName"];
+    lName.required = true;
+    if (lName.value == "") {
+        alert("Enter a last name");
+        return false;
+    }
+    return true;
 }
 //e.preventDefault:     Prevents the submission from being submission
 //$("#aboutme").attr("href", "aboutme.html");
