@@ -153,3 +153,38 @@ function validLastName() {
 }
 //e.preventDefault:     Prevents the submission from being submission
 //$("#aboutme").attr("href", "aboutme.html");
+
+function Address_Street(Address) {
+    var addStr = "";
+    Address.split(" ");
+
+    for (var i in Address) {
+        var charArray = Address.split("");
+        if (isNaN(i)){
+            break;
+        }
+        else
+    }
+
+}
+$("form").submit(function ({
+
+   
+
+    $.ajax({
+        type: "POST",
+        url: "",
+        dataType: "json",
+        data: {
+            FirstName: $("#firstName").val(),
+            LastName: $("#lastName").val(),
+            Gender: $("#Gender").val(),
+            DoB: $("#DoB").val(),
+            Address: {
+                StreetName: $("Address1")
+
+            }
+        }
+
+    })
+}));
