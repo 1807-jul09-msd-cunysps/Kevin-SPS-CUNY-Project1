@@ -50,7 +50,7 @@
             <div class="col-lg-4">
                 <div class="form-group" name="ageGroup">
                     <label class="form-check-label mx-3" for="DoB">Date of Birth</label>
-                    <input type="date" class="form-control ml-3" id="DoB" name="DateOfBirth" onblur="RevalidateAge()" />
+                    <input type="date" class="form-control ml-3" id="DoB" name="DateOfBirth" onblur="RevalidateAge()" required/>
                     <div id="dobHelp" class="text-danger"> </div>
                 </div>
 
@@ -76,20 +76,20 @@
         <div class="form-groups form">
                 <div class="form-group  col-6" id="Zip Code">
                     <label class="form-check-label" accesskeyfor="ZipCode">Zip Code</label>
-                    <input type="text" class="form-control form-control" id="ZipCode" onblur="checkZipcode()" />
+                    <input type="text" class="form-control form-control" id="ZipCode" onblur="checkZipcode()" required/>
                 </div>
             </div>
 
             <div class="form-check form-check-inline">
                 <div class="form-group col-8" >
                     <label for="State">State</label>
-                    <input type="text" id="State" />
+                    <input type="text" id="State" required />
                 </div>
             </div>
             <div class="form-check form-check-inline">
                 <div class="form-group col-12"">
                     <label for="City">City</label>
-                    <input type="text" id="City" />
+                    <input type="text" id="City" required/>
                 </div>
             </div>
 

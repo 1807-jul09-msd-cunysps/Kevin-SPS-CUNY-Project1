@@ -55,7 +55,6 @@ function checkAdd() {
 }
 
 function RevalidateAge() {
-    debugger;
     var dob = $("#DoB").val();
     var present = new Date();
     var age = Date.DateDiff("yyyy", dob, present)
@@ -73,11 +72,10 @@ function RevalidateAge() {
         dob_element.addClass("is-valid");
         dob_element.removeClass("is-invalid");
         dobHelp.innerHTML = '';
-
+        }
 
     }
 
-}
 function checkZipcode() {
     debugger;
     var zipcode = document.getElementById("ZipCode").value;
@@ -113,20 +111,20 @@ function zipCodeAPItoLocation(json) {
     state.value= location.state;
 }
 
-$("#FirstName, #LastName").on("blur", function () {
-    if ($(this).val().length === 0) {
-        setInvalid(this);
-    }
-    else if ($("#FirstName").val().toUpperCase() === $("#LastName").val().toUpperCase()) {
-        setInvalid("#FirstName");
-        setInvalid("#LastName");
-    }
-    else {
-        setValid("#FirstName");
-        setValid("#LastName");
-    }
+//$("#FirstName, #LastName").on("blur", function () {
+//    if ($(this).val().length === 0) {
+//        setInvalid(this);
+//    }
+//    else if ($("#FirstName").val().toUpperCase() === $("#LastName").val().toUpperCase()) {
+//        setInvalid("#FirstName");
+//        setInvalid("#LastName");
+//    }
+//    else {
+//        setValid("#FirstName");
+//        setValid("#LastName");
+//    }
 
-});
+//});
 
 
 function validFirstName() {
@@ -156,40 +154,50 @@ function validLastName() {
 }
 //e.preventDefault:     Prevents the submission from being submission
 //$("#aboutme").attr("href", "aboutme.html");
+var error_msg = "error in submission";
 
+function validAddress() {
+    var lName = document.forms["ContactForm"]["Address1"];
+}
 
-$("form").submit(function (event){
+$("form").submit(function (event) {
+    var person = {
+        FirstName: $("#firstName").val(),
+        LastName: $("#lastName").val(),
+        Gender: $("#Gender").val(),
+        DoB: $("#DoB").val(),
+        myAddress: {
+            Address1: $("#Address1").val(),
+            City: $("#City").val(),
+            State: $("#State").val(),
+            Zipcode: $("#ZipCode").va(),
+            Country: $("#Country").va(),
+        },
+        myPhone: {
+            CountryCode: $("#CountryCode").va(),
+            AreaCode: $("#AreaCode").va(),
+            Number: $("#PhoneNum").va()
+        }
+    };
+   
+    alert(person.FirstName + ' ' + person.LastName + ' ' + person.Gender + ' ' + person.DoB + ' ' + person.myAddress.Address1 + ' ' + person.myAddress.City + ' ' + person.myAddress.State + ' ' + person.myAddress.Zipcode + ' ' + person.myAddress.Country + ' ' + person.myPhone.CountryCode + ' ' + person.myPhone.AreaCode + ' ' + person.myPhone.Number);
     var valid = true;
     valid = validFirstName();
     valid = validLastName();
 
-   
 
+    debugger;
     $.ajax({
-       method: "POST",
-        url: "https://kevincontactme.azurewebsites.net/api/Person",
-        contentType: 'application/api',
-        dataType: "json",
-        data: JSON.stringify({
-            FirstName: $("#firstName").val(),
-            LastName: $("#lastName").val(),
-            Gender: $("#Gender").val(),
-            DoB: $("#DoB").val(),
-            myAddress: {
-                Address1: $("#Address1").val(),
-                City: $("#City").val(),
-                State: $("#State").val(),
-                Zipcode: $("#ZipCode").va(),
-                Country: $("#Country").va(),
-            },
-            myPhone: {
-                CountryCode: $("#CountryCode").va(),
-                AreaCode: $("#AreaCode").va(),
-                Number: $("#PhoneNum").va()
-            }
-        })
+        method: "POST",
+        url: "http://contactapi2.azurewebsites.net/api/person",
+        contentType: "Content-Type: plain/text",
+        dataType: "json;charset=utf-8",
+        data: JSON.stringify(person),
+        success: function (data) {
+            alert(data);
+        },
+        failure: function (err_msg) { alert(error_msg); }
     })
+})()
 
-
-})
 

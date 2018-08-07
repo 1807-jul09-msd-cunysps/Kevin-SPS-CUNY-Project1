@@ -78,7 +78,6 @@ C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\bi
 C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\bin\System.Web.WebPages.dll
 C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\bin\System.Web.WebPages.Razor.dll
 C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\bin\WebGrease.dll
-C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\bin\NLog.dll
 C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\bin\ContactDAL.pdb
 C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\bin\PhoneAppLibrary.pdb
 C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\bin\System.Net.Http.Formatting.xml
@@ -100,7 +99,6 @@ C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\bi
 C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\bin\Microsoft.AI.Web.xml
 C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\bin\NLog.xml
 C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\obj\Release\ContactAPI.csprojAssemblyReference.cache
 C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\obj\Release\ContactAPI.csproj.CoreCompileInputs.cache
 C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\obj\Release\ContactAPI.csproj.CopyComplete

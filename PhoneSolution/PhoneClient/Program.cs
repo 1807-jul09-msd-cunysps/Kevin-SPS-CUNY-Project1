@@ -14,7 +14,7 @@ namespace PhoneAppLibrary
         {
             Person.Address address = new Person.Address("1400 Pennsylvania Avenue", "Washington D.C.", "DC", "20500", "United States");
             Person.Phone phone = new Person.Phone("1", "900", "9871234");
-            Person person = new Person("Barack", "Obama", "M", "12/5/1988 12:00:00 AM", address, phone);
+            Person person = new Person("Michelle", "Obama", "F", "1/5/1970 12:00:00 AM", address, phone);
 
             string connectionString = "Data Source=kevin-adventureworks.database.windows.net;Initial Catalog=PhoneApp;User ID=kevin;Password=revature2018!";
             string queryInsertString = "";

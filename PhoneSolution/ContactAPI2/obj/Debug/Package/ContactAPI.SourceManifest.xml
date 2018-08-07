@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\obj\Debug\Package\PackageTmp" />
+  <setAcl path="C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\obj\Debug\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\Users\Kevin\source\repos\Kevin-SPS-CUNY-Project0\PhoneSolution\ContactAPI2\obj\Debug\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>
