@@ -1,12 +1,4 @@
-﻿.jumbotron .display-4{
-    font-size = 72px;
-}
-
-.jumbotron,p{
-    color=red;
-    font-size = 40px;
-}
-
+﻿
 .form-group
 {
     width: 500px;
@@ -67,9 +59,7 @@ b1{
 a:visited {
     color: #73C2FB;
 }
-article{
-    font-size: 14em;
-}
+
 #chkPermAddress{
     width: 300px;
 
