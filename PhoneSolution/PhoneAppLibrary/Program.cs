@@ -11,13 +11,13 @@ namespace PhoneAppLibrary
     {
         static void Main(string[] args)
         {
-
-            //Display main menu
-            PhoneAppLibrary.UI uI = new PhoneAppLibrary.UI();
-            //Displays UI on Console
-            uI.Print();
-            //Read user input
-            int input = int.Parse(Console.ReadLine());
+           
+            ////Display main menu
+            //PhoneAppLibrary.UI uI = new PhoneAppLibrary.UI();
+            ////Displays UI on Console
+            //uI.Print();
+            ////Read user input
+            //int input = int.Parse(Console.ReadLine());
 
         }
     }

@@ -113,31 +113,34 @@ function zipCodeAPItoLocation(json) {
     state.value= location.state;
 }
 
+$("#FirstName, #LastName").on("blur", function () {
+    if ($(this).val().length === 0) {
+        setInvalid(this);
+    }
+    else if ($("#FirstName").val().toUpperCase() === $("#LastName").val().toUpperCase()) {
+        setInvalid("#FirstName");
+        setInvalid("#LastName");
+    }
+    else {
+        setValid("#FirstName");
+        setValid("#LastName");
+    }
+
+});
+
 
 function validFirstName() {
     var fName = document.forms["ContactForm"]["firstName"];
     fName.required = true;
     var fNameHelper = $("#fNameHelper")
     if (fName.value == "") {
-        var p = document.createElement("p");
-        p.id = "fNameHelperP";
-        p.innerText = "Please enter a first name";
-        if (fNameHelper.hasChildNodes()) {
-            console.log('fNameHelper.hasNodes()');
-            fNameHelper.replaceChild(p);
-        }
-        else {
-            console.log('fNameHelper.appendChild');
-
-            fNameHelper.appendChild(p);
-        }
+        
+        fNameHelper.innerText = "Please enter a first name"; 
+        
         return false;
     }
     else {
-        if (fNameHelper.hasChildNodes()) {
-            fNameHelper.RemoveChild(fNameHelper.firstChild());
-        }
-        
+        fNameHelper.innerText = "";
     }
     return true;
 }
@@ -153,3 +156,40 @@ function validLastName() {
 }
 //e.preventDefault:     Prevents the submission from being submission
 //$("#aboutme").attr("href", "aboutme.html");
+
+
+$("form").submit(function (event){
+    var valid = true;
+    valid = validFirstName();
+    valid = validLastName();
+
+   
+
+    $.ajax({
+       method: "POST",
+        url: "https://kevincontactme.azurewebsites.net/api/Person",
+        contentType: 'application/api',
+        dataType: "json",
+        data: JSON.stringify({
+            FirstName: $("#firstName").val(),
+            LastName: $("#lastName").val(),
+            Gender: $("#Gender").val(),
+            DoB: $("#DoB").val(),
+            myAddress: {
+                Address1: $("#Address1").val(),
+                City: $("#City").val(),
+                State: $("#State").val(),
+                Zipcode: $("#ZipCode").va(),
+                Country: $("#Country").va(),
+            },
+            myPhone: {
+                CountryCode: $("#CountryCode").va(),
+                AreaCode: $("#AreaCode").va(),
+                Number: $("#PhoneNum").va()
+            }
+        })
+    })
+
+
+})
+
